@@ -32,7 +32,7 @@ z=268
 
 (L)etters for conversation go through this transition
 
-((+C)L*23)**2 == (T)
+((L+C)*23)**2 == (T)
 
 Where:
 T is the Transmitted numbers
