@@ -1,0 +1,42 @@
+DEV NOTES
+===============================
+
+The math looks like this:
+
+a=93
+b=100
+c=107
+d=114
+e=121
+f=128
+g=135
+h=142
+i=149
+j=156
+k=163
+l=170
+m=177
+n=184
+o=191
+p=198
+q=205
+r=212
+s=219
+t=226
+u=233
+v=240
+w=247
+x=254
+y=261
+z=268
+
+(L)etters for conversation go through this transition
+
+((+C)L*23)**2 == (T)
+
+Where:
+T is the Transmitted numbers
+C is the number of previously messages plus 1 * 8   (so we always start with 8)
+Since the number of previous messages matters we will need to send this as well, Psuedo encrypted as (P)
+
+(c*592)**2  == (p)
