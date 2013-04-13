@@ -5,6 +5,10 @@
 # so please capitaliz the second word of a variable
 # so Nathan's House as a variable would become: nathansHouse
 
+## Transit string:
+# as of now the tranmsited message (encodedMessage) is sent as follows:
+# date,time,randomNumber, letter, letter, ................
+
 #First we import some libraries. These will include additional functions that we need.
 import math
 import time
@@ -42,24 +46,50 @@ if not options.filename:
 def main():
 	makeTime();
 	readFile();
+	setupTransmit();
 	doMath();
 	writeFile();
+
 	
 
 def makeTime():
 	global transmitTime
 	global transmitDate
+	global transmitRando
 	global encodeDate
 	global encodeTime
 	global crazyMath
+	global randDo
+	randDo = random.randint(0,9999)
 	cleanTime = time.strftime('%H%M')
 	cleanDate = time.strftime('%Y%m%d')
-	transmitTime = int(cleanTime)**3
-	transmitDate = int(cleanDate)**2
+	transmitTime = (int(cleanTime) + randDo)**6
+	transmitDate = int(cleanDate)**3
+	transmitRando = int(randDo)**5
 	crazyMath = cleanTime
 	crazyMath += cleanDate
 
-		
+
+
+# I decided to use a random variable and add it to the time. The date will never repeat so there is
+# no chance of a pattern being discovered by crackers. Hoewever, if a message was sent at the same 
+# time everyday it would have the same time string. In order to confuse crackers we will also use
+# a random number that we will transmit so that time is hidden
+def setupTransmit():
+	global transmitTime
+	global transmitDate
+	global encodedMessage
+	transmitDateNew = str(transmitDate).zfill(30)
+	transmitTimeNew = str(transmitTime).zfill(30)
+	transmitRandoNew = str(transmitRando).zfill(30)
+	encodedMessage += str(transmitDateNew)
+	encodedMessage += str(transmitTimeNew)
+	encodedMessage += str(transmitRandoNew)
+
+
+
+
+
 def readFile():
 	global workString
 	openFile = sys.argv[1]
