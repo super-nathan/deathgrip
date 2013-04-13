@@ -12,15 +12,16 @@ import random
 import os
 import sys
 import textwrap
+
+
+# a quick definition
 encodedMessage = ""
 
 # we are going to create a main function, this will be important later, when we need to decide if we are encoding or decoding
 def main():
-	# We will print the vars for sanity checking in testing only1
 	makeTime();
 	readFile();
 	doMath();
-	#print(encodedMessage)
 	writeFile();
 	
 
@@ -101,7 +102,9 @@ def readFile():
 	global workString
 	openFile = sys.argv[1]
 	workString = open(openFile, 'r').read()
-		
+	workString = workString.lower()
+
+# this is the meat and potatos		
 def doMath():
 	global encodedMessage
 	for char in workString:
@@ -165,7 +168,7 @@ def doMath():
 			newNewLetter = str(newLetter).zfill(30)
 			encodedMessage += str(newNewLetter)
 
-
+#Lets write this to an output file
 def writeFile():
 	f = open('output.txt', 'w')
 	f.write(encodedMessage)
