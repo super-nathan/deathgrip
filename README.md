@@ -14,9 +14,13 @@ Usage
 
 As of now you can run the encoder (partial functionality) with a plain text file argument.
 
-    encode.py input.txt
+    encode.py -f input.txt
     
-The encoder will create a file called output.txt with the encoded text in it.
+A list of command line arguments can be seen with 
+
+	encode.py --help
+    
+The encoder will create a file called output.txt by default, if none are specified, with the encoded text in it.
 
 Authors
 ------------------------

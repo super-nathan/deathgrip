@@ -22,12 +22,14 @@ global fileName
 # the parser is a better way to read command line arguments!
 parser = OptionParser()
 parser.add_option("-f", "--file", dest="filename", help="write report to FILE", metavar="FILE", action="store", type="string")
-parser.add_option("-v", "--verbose", action="count", dest="verbosity", default=0)  
-parser.add_option("-d", "--dry-run", action="count", dest="dryrun", default=0)  
+parser.add_option("-v", "--verbose", action="count", dest="verbosity", help="print output", default=0)  
+parser.add_option("-d", "--dry-run", action="count", dest="dryrun", help="same as verbose with no output file", default=0)  
+parser.add_option("-o", "--output", dest="outfile", help="specify output FILE", metavar="FILE", action="store", type="string", default="output.txt")  
 (options, args) = parser.parse_args()
 fileName = options.filename
 verbosity = options.verbosity
-dryrun = options.dryrun
+outputFile = options.outfile
+dryRun = options.dryrun
 if dryrun > 0:
 	verbosity = 1
 if not options.filename: 
@@ -192,8 +194,8 @@ def doMath():
 def writeFile():
 	if verbosity >= 1 :
 		print(encodedMessage)
-	if dryrun == 0 :
-		f = open('output.txt', 'w')
+	if dryRun == 0 :
+		f = open(outputFile, 'w')
 		f.write(encodedMessage)
 		f.close()
 
