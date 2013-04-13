@@ -16,6 +16,8 @@ from optparse import OptionParser
 # a quick definition
 encodedMessage = ""
 global fileName
+dryRun = 0
+outputFile = "output.txt"
 
 
 
@@ -30,7 +32,7 @@ fileName = options.filename
 verbosity = options.verbosity
 outputFile = options.outfile
 dryRun = options.dryrun
-if dryrun > 0:
+if dryRun > 0:
 	verbosity = 1
 if not options.filename: 
     parser.error("You must specify an input file")
@@ -57,65 +59,6 @@ def makeTime():
 	crazyMath = cleanTime
 	crazyMath += cleanDate
 
-
-def letterToNumbers():
-	if char == "a":
-		b = 12
-	elif char == "b":
-		b = 15
-	elif char == "c":
-		b = 17
-	elif char == "d":
-		b = 19
-	elif char == "e":
-		b = 23
-	elif char == "f":
-		b = 26
-	elif char == "g":
-		b = 28
-	elif char == "h":
-		b = 19
-	elif char == "i":
-		b = 37
-	elif char == "j":
-		b = 39
-	elif char == "k":
-		b = 40
-	elif char == "l":
-		b = 48
-	elif char == "m":
-		b = 51
-	elif char == "n":
-		b = 52
-	elif char == "o":
-		b = 53
-	elif char == "p":
-		b = 59
-	elif char == "q":
-		b = 70
-	elif char == "r":
-		b = 72
-	elif char == "s":
-		b = 77
-	elif char == "t":
-		b = 79
-	elif char == "u":
-		b = 80
-	elif char == "v":
-		b = 82
-	elif char == "w":
-		b = 86
-	elif char == "x":
-		b = 87
-	elif char == "y":
-		b = 90
-	elif char == "v":
-		b = 91
-	elif char == "w":
-		b = 93
-	elif char == " ":
-		b = 99
-	return b
 		
 def readFile():
 	global workString
@@ -185,6 +128,8 @@ def doMath():
 				b = 93
 			elif char == " ":
 				b = 99
+			else:
+				b = 0
 			newLetter = (int(b)*int(crazyMath))**2
 			newNewLetter = str(newLetter).zfill(30)
 			encodedMessage += str(newNewLetter)
