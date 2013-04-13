@@ -11,11 +11,28 @@ import time
 import random
 import os
 import sys
-import textwrap
-
+from optparse import OptionParser
 
 # a quick definition
 encodedMessage = ""
+global fileName
+
+
+
+# the parser is a better way to read command line arguments!
+parser = OptionParser()
+parser.add_option("-f", "--file", dest="filename", help="write report to FILE", metavar="FILE", action="store", type="string")
+parser.add_option("-v", "--verbose", action="count", dest="verbosity", default=0)  
+parser.add_option("-d", "--dry-run", action="count", dest="dryrun", default=0)  
+(options, args) = parser.parse_args()
+fileName = options.filename
+verbosity = options.verbosity
+dryrun = options.dryrun
+if dryrun > 0:
+	verbosity = 1
+if not options.filename: 
+    parser.error("You must specify an input file")
+
 
 # we are going to create a main function, this will be important later, when we need to decide if we are encoding or decoding
 def main():
@@ -101,8 +118,10 @@ def letterToNumbers():
 def readFile():
 	global workString
 	openFile = sys.argv[1]
-	workString = open(openFile, 'r').read()
+	workString = open(fileName, 'r').read()
 	workString = workString.lower()
+	if verbosity >= 1 :
+		print (workString)
 
 # this is the meat and potatos		
 def doMath():
@@ -167,12 +186,16 @@ def doMath():
 			newLetter = (int(b)*int(crazyMath))**2
 			newNewLetter = str(newLetter).zfill(30)
 			encodedMessage += str(newNewLetter)
+			
 
 #Lets write this to an output file
 def writeFile():
-	f = open('output.txt', 'w')
-	f.write(encodedMessage)
-	f.close()
+	if verbosity >= 1 :
+		print(encodedMessage)
+	if dryrun == 0 :
+		f = open('output.txt', 'w')
+		f.write(encodedMessage)
+		f.close()
 
 # Since EVERYTHING before this is definistions, running this one function, runs the program	
 main();
