@@ -39,4 +39,19 @@ T is the Transmitted numbers
 C is the number of previously messages plus 1 * 8   (so we always start with 8)
 Since the number of previous messages matters we will need to send this as well, Psuedo encrypted as (P)
 
-(c*592)**2  == (p)
+((c+93)*time)**2  == (p)
+
+we are using the time so we that we do not develop a patern for conversation numbers that is easy to decode.
+This is also nice to know what time the Document was sent
+
+since now the time is also important we will send that as well as t(I)me
+
+(time**2) == I
+
+
+The transmit pattern will be:
+
+#P#I#T#T#..........#
+
+
+
