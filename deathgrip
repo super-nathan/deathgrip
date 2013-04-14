@@ -1,10 +1,5 @@
 #!/usr/bin/python3
 
-## programming convention:
-# I know "camel case" is a C codeing convention, but I like it!
-# so please capitaliz the second word of a variable
-# so Nathan's House as a variable would become: nathansHouse
-
 ## Transit string:
 # as of now the tranmsited message (encodedMessage) is sent as follows:
 # date,time,randomNumber, letter, letter, ................
@@ -24,7 +19,6 @@ dryRun = 0
 encode = 0
 decode = 0
 outputFile = "output.txt"
-
 
 
 # the parser is a better way to read command line arguments!
@@ -329,5 +323,7 @@ elif decode == 1:
 	# Since EVERYTHING before this is definistions, running this one function, runs the program	
 	main();
 
+
+# In theory this never runs
 else:
 	print("there have been errors")
