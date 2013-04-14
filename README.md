@@ -13,11 +13,11 @@ Usage
 
 Deathgrip is ran in either encoder (-e) or decoder (-d) mode. You must specify an input file. You can optionally specify an output file. To encode "foo.txt" you could use:
 
-    deathgrip -e -f foo.txt
+    deathgrip -e -i foo.txt
 
 As it would by default send that output to "output.txt", you would decode the output with:
 
-    deathgrip -e -f output.txt -o bar.txt
+    deathgrip -e -i output.txt -o bar.txt
 
 Since we specified an output file for the decoder, the decoded message can be seen by opening "bar.txt"
     
