@@ -26,6 +26,12 @@ A complete list of command line arguments can be seen with
 	deathgrip --help
     
 
+Instalation
+--------------------------
+
+* Linux
+    sudo cp /path/to/deathgrip /usr/bin/
+
 Authors
 ------------------------
 
