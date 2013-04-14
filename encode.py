@@ -60,12 +60,13 @@ def makeTime():
 	global encodeTime
 	global crazyMath
 	global randDo
-	randDo = random.randint(0,9999)
+	randDo = random.randint(0,999)
 	cleanTime = time.strftime('%H%M')
 	cleanDate = time.strftime('%Y%m%d')
-	transmitTime = (int(cleanTime) + randDo)**6
+	transmitTime = int(cleanTime) + randDo
+	transmitTime = int(transmitTime)**6
 	transmitDate = int(cleanDate)**3
-	transmitRando = int(randDo)**5
+	transmitRando = int(randDo)**4
 	crazyMath = cleanTime
 	crazyMath += cleanDate
 
@@ -106,6 +107,8 @@ def doMath():
 				b = 12
 			elif char == "b":
 				b = 15
+			elif char == "\n":
+				b = 5
 			elif char == "c":
 				b = 17
 			elif char == "d":
@@ -152,15 +155,14 @@ def doMath():
 				b = 87
 			elif char == "y":
 				b = 90
-			elif char == "v":
-				b = 91
-			elif char == "w":
+			elif char == "z":
 				b = 93
 			elif char == " ":
 				b = 99
 			else:
 				b = 0
-			newLetter = (int(b)*int(crazyMath))**2
+			newLetter = int(b)*int(crazyMath)
+			newLetter = newLetter**2
 			newNewLetter = str(newLetter).zfill(30)
 			encodedMessage += str(newNewLetter)
 			
