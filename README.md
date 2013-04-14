@@ -6,7 +6,7 @@ DEATHGRIP
 What is Deathgrip
 -------------------------
 
-Deathgrip is a Python script which is used to encrypt and decript plain text messages by converting letters to numbers and using a unique conversation salt.
+Deathgrip is a Python script which is used to encrypt and decript plain text messages by converting letters to numbers and using a unique date and time based salt.
 
 Usage
 -------------------------
