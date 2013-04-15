@@ -161,6 +161,34 @@ if encode == 1:
 					b = 93
 				elif char == " ":
 					b = 99
+				elif char == "1":
+					b = 2
+				elif char == "2":
+					b = 4
+				elif char == "3":
+					b = 6
+				elif char == "4":
+					b = 8
+				elif char == "5":
+					b = 10
+				elif char == "6":
+					b = 3
+				elif char == "7":
+					b = 5
+				elif char == "8":
+					b = 7
+				elif char == "9":
+					b = 9
+				elif char == "0":
+					b = 11
+				elif char == ".":
+					b = 13
+				elif char == ",":
+					b = 14
+				elif char == "?":
+					b = 16
+				elif char == "!":
+					b = 18
 				else:
 					b = 0
 				newLetter = int(b)*int(crazyMath)
@@ -304,6 +332,34 @@ elif decode == 1:
 				b = "z"
 			elif testVal == 99:
 				b = " "
+			elif testVal == 2:
+				b = "1"
+			elif testVal == 4:
+				b = "2"
+			elif testVal == 6:
+				b = "3"
+			elif testVal == 8:
+				b = "4"
+			elif testVal == 10:
+				b = "5"
+			elif testVal == 3:
+				b = "6"
+			elif testVal == 5:
+				b = "7"
+			elif testVal == 7:
+				b = "8"
+			elif testVal == 9:
+				b = "9"
+			elif testVal == 11:
+				b = "0"
+			elif testVal == 13:
+				b = "."
+			elif testVal == 14:
+				b = ","
+			elif testVal == 16:
+				b = "?"
+			elif testVal == 18:
+				b = "!"
 			else:
 				b = ""
 			newLetter = str(b)
