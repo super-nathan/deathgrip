@@ -1,0 +1,11 @@
+Source: deathgrip
+Section: unknown
+Priority: extra
+Maintainer: "Super" Nathan Weber <supernathansunshine@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Homepage: www.github.com/super-nathan/deathgrip
+
+Package: deathgrip
+Architecture: all
+Depends: python3
+Description: very complex cryptogrphic converter for plain text
