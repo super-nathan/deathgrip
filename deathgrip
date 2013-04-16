@@ -97,6 +97,7 @@ if encode == 1:
 		global workString
 		openFile = sys.argv[1]
 		workString = open(fileName, 'r').read()
+		#delete the next line if you add capitals
 		workString = workString.lower()
 		if verbosity >= 1 :
 			print (workString)
