@@ -110,7 +110,7 @@ if encode == 1:
 				elif char == "b":
 					b = 15
 				elif char == "\n":
-					b = 5
+					b = 98
 				elif char == "c":
 					b = 17
 				elif char == "d":
@@ -280,7 +280,7 @@ elif decode == 1:
 				b = "a"
 			elif testVal == 15:
 				b = "b"
-			elif testVal == 5:
+			elif testVal == 98:
 				b = "\n"
 			elif testVal == 17:
 				b = "c"
