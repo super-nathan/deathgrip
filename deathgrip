@@ -66,6 +66,7 @@ if encode == 1:
 		cleanTime = time.strftime('%H%M')
 		cleanDate = time.strftime('%Y%m%d')
 		transmitTime = int(cleanTime) + randDo
+		transmitDate = int(cleanDate) + randDo
 		transmitTime = int(transmitTime)**6
 		transmitDate = int(cleanDate)**3
 		transmitRando = int(randDo)**4
@@ -250,6 +251,7 @@ elif decode == 1:
 		realTime = realTime - realRando
 		realTime = int(realTime)
 		realDate = math.pow(receivedDate, 1/3)
+		realDate = realDate - realRando
 		realDate = int(realDate)
 		decodedMessage += "Time was:"
 		decodedMessage += str(realTime)
