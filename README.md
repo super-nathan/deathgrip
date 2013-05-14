@@ -6,9 +6,9 @@ DEATHGRIP
 What is Deathgrip
 -------------------------
 
-Deathgrip is a Python script which is used to encrypt and decript plain text messages by converting letters to numbers and using a unique date and time based salt.
+Deathgrip is a Python-based program which is used to encrypt and decript plain text messages by converting letters to numbers and using a mathmatical algorithm based on the time, date, and random integers. 
 
-Usage
+ Basic Usage
 -------------------------
 
 Deathgrip is ran in either encoder (-e) or decoder (-d) mode. You must specify an input file. You can optionally specify an output file. To encode "foo.txt" you could use:
@@ -29,8 +29,26 @@ A complete list of command line arguments can be seen with
 Instalation
 --------------------------
 
-* Linux
-    sudo cp /path/to/deathgrip /usr/bin/
+The recommended debian based instalation method is as follows:
+
+    sudo $SHELL
+    cd /tmp/
+    git clone https://github.com/super-nathan/deathgrip.git
+    cd /tmp/deathgrip
+    dpkg-buildpackage -us -uc
+    cd ../
+    dpkg -i deathgrip_*_all.deb
+    exit
+    
+All other Linux users should
+	
+	sudo $SHELL
+    cd /tmp/
+    git clone https://github.com/super-nathan/deathgrip.git
+    cd /tmp/deathgrip
+    cp deathgrip /usr/bin/
+    cp deathgrip.conf /etc/
+    exit
 
 Authors
 ------------------------
