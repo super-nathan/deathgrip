@@ -29,12 +29,12 @@ outputFile = "output.txt"
 # the parser is a better way to read command line arguments!
 parser = OptionParser()
 parser.add_option("-i", "--input", dest="filename", help="write report to a file", metavar="FOO", action="store", type="string")
+parser.add_option("-o", "--output", dest="outfile", help="specify output to a file", metavar="BAR", action="store", type="string", default="output.txt")  
 parser.add_option("-c", "--config", dest="confParse", help="write report to a file", metavar="FOO", action="store", type="string")
 parser.add_option("-v", "--verbose", action="count", dest="verbosity", help="print output", default=0)  
 parser.add_option("-e", "--encode", action="count", dest="encode", help="print output", default=0)  
 parser.add_option("-d", "--decode", action="count", dest="decode", help="print output", default=0)  
 parser.add_option("--dry-run", action="count", dest="dryrun", help="same as verbose with no output file", default=0)  
-parser.add_option("-o", "--output", dest="outfile", help="specify output to a file", metavar="BAR", action="store", type="string", default="output.txt")  
 (options, args) = parser.parse_args()
 fileName = options.filename
 encode = options.encode
