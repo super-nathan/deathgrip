@@ -19,6 +19,7 @@ from optparse import OptionParser
 encodedMessage = ""
 global fileName
 global confFile
+confFile = ""
 dryRun = 0
 encode = 0
 decode = 0
@@ -35,7 +36,7 @@ parser.add_option("-d", "--decode", action="count", dest="decode", help="print o
 parser.add_option("--dry-run", action="count", dest="dryrun", help="same as verbose with no output file", default=0)  
 parser.add_option("-o", "--output", dest="outfile", help="specify output to a file", metavar="BAR", action="store", type="string", default="output.txt")  
 (options, args) = parser.parse_args()
-encode = options.encode
+fileName = options.filename
 encode = options.encode
 decode = options.decode
 confParse = options.confParse
@@ -56,16 +57,16 @@ if encode == 0 and decode == 0:
 # if the user has no configs it will throw and error and exit
 
 if len(confFile) > 1:
-	global confFile = confParse
+	confFile = confParse
 elif os.path.isfile("./deathgrip.conf") == True:
-	global confFile = "./deathgrip.conf"
+	confFile = "./deathgrip.conf"
 elif os.path.isfile("~/.deathgrip.conf") == True:
-	global confFile = "~/.deathgrip.conf"
+	confFile = "~/.deathgrip.conf"
 elif os.path.isfile("~/.config/deathgrip/deathgrip.conf") == True:
-	global confFile = "~/.config/deathgrip/deathgrip.conf"
+	confFile = "~/.config/deathgrip/deathgrip.conf"
 elif os.path.isfile("~/etc/deathgrip.conf") == True:
-	global confFile = "~/etc/deathgrip.conf"
-else 
+	confFile = "~/etc/deathgrip.conf"
+else:
 	parser.error("You don't have a config file")
 
 
