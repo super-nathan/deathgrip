@@ -3,9 +3,15 @@ Section: unknown
 Priority: extra
 Maintainer: "Super" Nathan Weber <supernathansunshine@gmail.com>
 Build-Depends: debhelper (>= 8.0.0)
-Homepage: www.github.com/super-nathan/deathgrip
+Homepage: http://github.com/super-nathan/deathgrip
 
 Package: deathgrip
 Architecture: all
 Depends: python3
 Description: very complex cryptogrphic converter for plain text
+ Deathgrip uses a complex form of mathmatical and organizational
+ conversions to tranform a plain text document into a secure
+ string of numbers that can be transmitted without further
+ encryption. Because Deathgrip uses a unique configuration file
+ it is able to encode and decode with encryption even though
+ the code is open source.
