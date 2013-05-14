@@ -1,3 +1,9 @@
+deathgrip (0.2.0) unstable; urgency=low
+
+  * Added support for configuration files
+
+ -- "Super" Nathan Weber <supernathansunshine@gmail.com>  Tue, 14 May 2013 15:16:59 +0900
+
 deathgrip (0.1.1) unstable; urgency=low
 
   * Added support for numbers and punctuation

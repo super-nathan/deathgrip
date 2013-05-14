@@ -6,19 +6,15 @@
 
 #First we import some libraries. These will include additional functions that we need.
 import math
-import configparser
-config = configparser.ConfigParser()
 import time
 import random
 import os
-import os.path
 import sys
 from optparse import OptionParser
 
 # a quick definition
 encodedMessage = ""
 global fileName
-global confFile
 dryRun = 0
 encode = 0
 decode = 0
@@ -28,7 +24,6 @@ outputFile = "output.txt"
 # the parser is a better way to read command line arguments!
 parser = OptionParser()
 parser.add_option("-i", "--input", dest="filename", help="write report to a file", metavar="FOO", action="store", type="string")
-parser.add_option("-c", "--config", dest="confParse", help="write report to a file", metavar="FOO", action="store", type="string")
 parser.add_option("-v", "--verbose", action="count", dest="verbosity", help="print output", default=0)  
 parser.add_option("-e", "--encode", action="count", dest="encode", help="print output", default=0)  
 parser.add_option("-d", "--decode", action="count", dest="decode", help="print output", default=0)  
@@ -36,9 +31,8 @@ parser.add_option("--dry-run", action="count", dest="dryrun", help="same as verb
 parser.add_option("-o", "--output", dest="outfile", help="specify output to a file", metavar="BAR", action="store", type="string", default="output.txt")  
 (options, args) = parser.parse_args()
 encode = options.encode
-encode = options.encode
 decode = options.decode
-confParse = options.confParse
+fileName = options.filename
 verbosity = options.verbosity
 outputFile = options.outfile
 dryRun = options.dryrun
@@ -48,26 +42,6 @@ if not options.filename:
     parser.error("You must specify an input file")
 if encode == 0 and decode == 0:
 	    parser.error("You must specify to encode or decode")
-
-
-## first hting we need to do is define the config file
-# we will check in the local folder, then the users home, then if 
-# not fould we will use the default from /etc
-# if the user has no configs it will throw and error and exit
-
-if len(confFile) > 1:
-	global confFile = confParse
-elif os.path.isfile("./deathgrip.conf") == True:
-	global confFile = "./deathgrip.conf"
-elif os.path.isfile("~/.deathgrip.conf") == True:
-	global confFile = "~/.deathgrip.conf"
-elif os.path.isfile("~/.config/deathgrip/deathgrip.conf") == True:
-	global confFile = "~/.config/deathgrip/deathgrip.conf"
-elif os.path.isfile("~/etc/deathgrip.conf") == True:
-	global confFile = "~/etc/deathgrip.conf"
-else 
-	parser.error("You don't have a config file")
-
 
 if encode == 1:
 	# we are going to create a main function, this will be important later, when we need to decide if we are encoding or decoding
@@ -130,94 +104,92 @@ if encode == 1:
 
 	# this is the meat and potatos		
 	def doMath():
-		global confFile
-		config.read(confFile)
 		global encodedMessage
 		for char in workString:
 				if char == "a":
-					b = int(config['KEY']['A'])
+					b = 12
 				elif char == "b":
-					b = int(config['KEY']['B'])
-				elif char == "c":
-					b = int(config['KEY']['C'])
-				elif char == "d":
-					b = int(config['KEY']['D'])
-				elif char == "e":
-					b = int(config['KEY']['E'])
-				elif char == "f":
-					b = int(config['KEY']['F'])
-				elif char == "g":
-					b = int(config['KEY']['G'])
-				elif char == "h":
-					b = int(config['KEY']['H'])
-				elif char == "i":
-					b = int(config['KEY']['I'])
-				elif char == "j":
-					b = int(config['KEY']['J'])
-				elif char == "k":
-					b = int(config['KEY']['K'])
-				elif char == "l":
-					b = int(config['KEY']['L'])
-				elif char == "m":
-					b = int(config['KEY']['M'])
-				elif char == "n":
-					b = int(config['KEY']['N'])
-				elif char == "o":
-					b = int(config['KEY']['O'])
-				elif char == "p":
-					b = int(config['KEY']['P'])
-				elif char == "q":
-					b = int(config['KEY']['Q'])
-				elif char == "r":
-					b = int(config['KEY']['R'])
-				elif char == "s":
-					b = int(config['KEY']['S'])
-				elif char == "t":
-					b = int(config['KEY']['T'])
-				elif char == "u":
-					b = int(config['KEY']['U'])
-				elif char == "v":
-					b = int(config['KEY']['V'])
-				elif char == "w":
-					b = int(config['KEY']['W'])
-				elif char == "x":
-					b = int(config['KEY']['X'])
-				elif char == "y":
-					b = int(config['KEY']['Y'])
-				elif char == "z":
-					b = int(config['KEY']['Z'])
-				elif char == " ":
-					b = int(config['KEY']['SPACE'])
-				elif char == "1":
-					b = int(config['KEY']['ONE'])
-				elif char == "2":
-					b = int(config['KEY']['TWO'])
-				elif char == "3":
-					b = int(config['KEY']['THREE'])
-				elif char == "4":
-					b = int(config['KEY']['FOUR'])
-				elif char == "5":
-					b = int(config['KEY']['FIVE'])
-				elif char == "6":
-					b = int(config['KEY']['SIX'])
-				elif char == "7":
-					b = int(config['KEY']['SEVEN'])
-				elif char == "8":
-					b = int(config['KEY']['EIGHT'])
-				elif char == "9":
-					b = int(config['KEY']['NINE'])
-				elif char == "0":
-					b = int(config['KEY']['ZERO'])
-				elif char == ".":
-					b = int(config['KEY']['PERIOD'])
-				elif char == ",":
-					b = int(config['KEY']['COMMA'])
-				elif char == "?":
-					b = int(config['KEY']['QUESTION'])
-				elif char == "!":
-					b = int(config['KEY']['EXCLAIM'])
+					b = 15
 				elif char == "\n":
-					b = int(config['KEY']['NEWLINE'])
+					b = 98
+				elif char == "c":
+					b = 17
+				elif char == "d":
+					b = 19
+				elif char == "e":
+					b = 23
+				elif char == "f":
+					b = 26
+				elif char == "g":
+					b = 28
+				elif char == "h":
+					b = 29
+				elif char == "i":
+					b = 37
+				elif char == "j":
+					b = 39
+				elif char == "k":
+					b = 40
+				elif char == "l":
+					b = 48
+				elif char == "m":
+					b = 51
+				elif char == "n":
+					b = 52
+				elif char == "o":
+					b = 53
+				elif char == "p":
+					b = 59
+				elif char == "q":
+					b = 70
+				elif char == "r":
+					b = 72
+				elif char == "s":
+					b = 77
+				elif char == "t":
+					b = 79
+				elif char == "u":
+					b = 80
+				elif char == "v":
+					b = 82
+				elif char == "w":
+					b = 86
+				elif char == "x":
+					b = 87
+				elif char == "y":
+					b = 90
+				elif char == "z":
+					b = 93
+				elif char == " ":
+					b = 99
+				elif char == "1":
+					b = 2
+				elif char == "2":
+					b = 4
+				elif char == "3":
+					b = 6
+				elif char == "4":
+					b = 8
+				elif char == "5":
+					b = 10
+				elif char == "6":
+					b = 3
+				elif char == "7":
+					b = 5
+				elif char == "8":
+					b = 7
+				elif char == "9":
+					b = 9
+				elif char == "0":
+					b = 11
+				elif char == ".":
+					b = 13
+				elif char == ",":
+					b = 14
+				elif char == "?":
+					b = 16
+				elif char == "!":
+					b = 18
 				else:
 					b = 0
 				newLetter = int(b)*int(crazyMath)
@@ -295,8 +267,6 @@ elif decode == 1:
 
 	# this is the meat and potatos		
 	def doMoreMath():
-		global confFile
-		config.read(confFile)
 		global workStringTwo
 		global testVal
 		global decodedMessage
@@ -307,90 +277,90 @@ elif decode == 1:
 			testVal = math.pow(workStringThree, 1/2)
 			testVal = testVal / int(crazyMathTwo)
 			testVal = int(testVal)
-			if testVal == int(config['KEY']['A']):
+			if testVal == 12:
 				b = "a"
-			elif testVal == int(config['KEY']['B']):
+			elif testVal == 15:
 				b = "b"
-			elif testVal == int(config['KEY']['C']):
-				b = "c"
-			elif testVal == int(config['KEY']['D']):
-				b = "d"
-			elif testVal == int(config['KEY']['E']):
-				b = "e"
-			elif testVal == int(config['KEY']['F']):
-				b = "f"
-			elif testVal == int(config['KEY']['G']):
-				b = "g"
-			elif testVal == int(config['KEY']['H']):
-				b = "h"
-			elif testVal == int(config['KEY']['I']):
-				b = "i"
-			elif testVal == int(config['KEY']['j']):
-				b = "j"
-			elif testVal == int(config['KEY']['K']):
-				b = "k"
-			elif testVal == int(config['KEY']['L']):
-				b = "l"
-			elif testVal == int(config['KEY']['M']):
-				b = "m"
-			elif testVal == int(config['KEY']['N']):
-				b = "n"
-			elif testVal == int(config['KEY']['O']):
-				b = "o"
-			elif testVal == int(config['KEY']['P']):
-				b = "p"
-			elif testVal == int(config['KEY']['Q']):
-				b = "q"
-			elif testVal == int(config['KEY']['R']):
-				b = "r"
-			elif testVal == int(config['KEY']['S']):
-				b = "s"
-			elif testVal == int(config['KEY']['T']):
-				b = "t"
-			elif testVal == int(config['KEY']['U']):
-				b = "u"
-			elif testVal == int(config['KEY']['V']):
-				b = "v"
-			elif testVal == int(config['KEY']['W']):
-				b = "w"
-			elif testVal == int(config['KEY']['X']):
-				b = "x"
-			elif testVal == int(config['KEY']['Y']):
-				b = "y"
-			elif testVal == int(config['KEY']['Z']):
-				b = "z"
-			elif testVal == int(config['KEY']['SPACE']):
-				b = " "
-			elif testVal == int(config['KEY']['ONE']):
-				b = "1"
-			elif testVal == int(config['KEY']['TWO']):
-				b = "2"
-			elif testVal == int(config['KEY']['THREE']):
-				b = "3"
-			elif testVal == int(config['KEY']['FOUR']):
-				b = "4"
-			elif testVal == int(config['KEY']['FIVE']):
-				b = "5"
-			elif testVal == int(config['KEY']['SIX']):
-				b = "6"
-			elif testVal == int(config['KEY']['SEVEN']):
-				b = "7"
-			elif testVal == int(config['KEY']['EIGHT']):
-				b = "8"
-			elif testVal == int(config['KEY']['NINE']):
-				b = "9"
-			elif testVal == int(config['KEY']['ZERO']):
-				b = "0"
-			elif testVal == int(config['KEY']['PERIOD']):
-				b = "."
-			elif testVal == int(config['KEY']['COMMA']):
-				b = ","
-			elif testVal == int(config['KEY']['QUESTION']):
-				b = "?"
-			elif testVal == int(config['KEY']['EXCLAIM']):
-				b = "!"
-			elif testVal == int(config['KEY']['NEWLINE']):
+			elif testVal == 98:
 				b = "\n"
+			elif testVal == 17:
+				b = "c"
+			elif testVal == 19:
+				b = "d"
+			elif testVal == 23:
+				b = "e"
+			elif testVal == 26:
+				b = "f"
+			elif testVal == 28:
+				b = "g"
+			elif testVal == 29:
+				b = "h"
+			elif testVal == 37:
+				b = "i"
+			elif testVal == 39:
+				b = "j"
+			elif testVal == 40:
+				b = "k"
+			elif testVal == 48:
+				b = "l"
+			elif testVal == 51:
+				b = "m"
+			elif testVal == 52:
+				b = "n"
+			elif testVal == 53:
+				b = "o"
+			elif testVal == 59:
+				b = "p"
+			elif testVal == 70:
+				b = "q"
+			elif testVal == 72:
+				b = "r"
+			elif testVal == 77:
+				b = "s"
+			elif testVal == 79:
+				b = "t"
+			elif testVal == 80:
+				b = "u"
+			elif testVal == 82:
+				b = "v"
+			elif testVal == 86:
+				b = "w"
+			elif testVal == 87:
+				b = "x"
+			elif testVal == 90:
+				b = "y"
+			elif testVal == 93:
+				b = "z"
+			elif testVal == 99:
+				b = " "
+			elif testVal == 2:
+				b = "1"
+			elif testVal == 4:
+				b = "2"
+			elif testVal == 6:
+				b = "3"
+			elif testVal == 8:
+				b = "4"
+			elif testVal == 10:
+				b = "5"
+			elif testVal == 3:
+				b = "6"
+			elif testVal == 5:
+				b = "7"
+			elif testVal == 7:
+				b = "8"
+			elif testVal == 9:
+				b = "9"
+			elif testVal == 11:
+				b = "0"
+			elif testVal == 13:
+				b = "."
+			elif testVal == 14:
+				b = ","
+			elif testVal == 16:
+				b = "?"
+			elif testVal == 18:
+				b = "!"
 			else:
 				b = ""
 			newLetter = str(b)
