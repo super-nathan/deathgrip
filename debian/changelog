@@ -4,6 +4,12 @@ deathgrip (0.2.0) unstable; urgency=low
 
  -- "Super" Nathan Weber <supernathansunshine@gmail.com>  Tue, 14 May 2013 15:16:59 +0900
 
+deathgrip (0.1.2) unstable; urgency=low
+
+  * Making it more secure with a rando and the date
+
+ -- "Super" Nathan Weber <supernathansunshine@gmail.com>  Wed, 17 Apr 2013 13:02:37 +0900
+
 deathgrip (0.1.1) unstable; urgency=low
 
   * Added support for numbers and punctuation
