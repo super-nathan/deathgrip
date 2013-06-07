@@ -5,7 +5,8 @@ pkgname=deathgrip-git
 pkgver=20130608
 pkgrel=1
 pkgdesc="Cryptography program for plain text"
-arch=('i686' 'x86_64')url="git://github.com/super-nathan/deathgrip.git"
+arch=('i686' 'x86_64')
+url="git://github.com/super-nathan/deathgrip.git"
 license=('GPL')
 depends=('python')
 makedepends=('git')
