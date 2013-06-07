@@ -64,8 +64,8 @@ elif os.path.isfile("~/.deathgrip.conf") == True:
 	confFile = "~/.deathgrip.conf"
 elif os.path.isfile("~/.config/deathgrip/deathgrip.conf") == True:
 	confFile = "~/.config/deathgrip/deathgrip.conf"
-elif os.path.isfile("~/etc/deathgrip.conf") == True:
-	confFile = "~/etc/deathgrip.conf"
+elif os.path.isfile("/etc/deathgrip.conf") == True:
+	confFile = "/etc/deathgrip.conf"
 else:
 	parser.error("You don't have a config file")
 
