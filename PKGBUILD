@@ -13,8 +13,7 @@ makedepends=('git')
 provides=(deathgrip)
 conflicts=(deathgrip)
 source=('git://github.com/super-nathan/deathgrip.git')
-md5sums=('SKIP'
-         '020c36e38466b68cbc7b3f93e2044b49')
+md5sums=('SKIP')
 
 _gitname=deathgrip
 _gitroot='git://github.com/super-nathan/deathgrip.git'
