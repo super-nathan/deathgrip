@@ -29,7 +29,18 @@ A complete list of command line arguments can be seen with
 Instalation
 --------------------------
 
-The recommended debian based instalation method is as follows:
+Arch Linux users can install via the AUR
+
+    sudo $SHELL
+    cd /tmp/
+    wget https://aur.archlinux.org/packages/de/deathgrip-git/deathgrip-git.tar.gz
+    tar xzvf deathgrip-git.tar.gz
+    deathgrip-git
+    makepkg
+    pacman -U deathgrip-git-20130608-1-*.pkg.tar.xz
+    exit
+
+The Debian based instalation method is as follows:
 
     sudo $SHELL
     cd /tmp/
