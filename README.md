@@ -35,7 +35,7 @@ Arch Linux users can install via the AUR
     cd /tmp/
     wget https://aur.archlinux.org/packages/de/deathgrip-git/deathgrip-git.tar.gz
     tar xzvf deathgrip-git.tar.gz
-    deathgrip-git
+    cd deathgrip-git
     makepkg
     pacman -U deathgrip-git-20130608-1-*.pkg.tar.xz
     exit
