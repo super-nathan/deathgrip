@@ -59,7 +59,8 @@ All other Linux users should
     cd /tmp/deathgrip
     cp deathgrip /usr/bin/
     cp deathgrip.conf /etc/
-    cp deathgrip.1 /usr/share/man/man1/
+    gzip deathgrip.1
+    cp deathgrip.1.gz /usr/share/man/man1/
     exit
 
 Authors
